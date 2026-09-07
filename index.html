@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Siddhant Gurav | Senior MySQL Database Administrator</title>
+<meta name="description" content="Siddhant Gurav — Senior MySQL Database Administrator. 9+ years administering MySQL, PostgreSQL, and MongoDB for banking, fintech, and payments platforms.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg:        #0B121C;
+    --surface:   #121B29;
+    --surface-2: #17263A;
+    --border:    #24344A;
+    --ink:       #E7ECF2;
+    --ink-soft:  #93A3B8;
+    --accent:    #35C4A1;
+    --accent-2:  #E8B15C;
+
+    --mono: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --max: 880px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 { font-family: var(--mono); line-height: 1.2; margin: 0 0 0.5em; font-weight: 700; }
+  p { margin: 0 0 1em; color: var(--ink-soft); }
+  a { color: var(--accent); }
+  ul { padding-left: 1.1em; margin: 0; }
+  li { margin-bottom: 0.5em; color: var(--ink-soft); }
+
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  /* ---------- nav ---------- */
+  nav {
+    position: sticky; top: 0; z-index: 5;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 0.6em 1.4em;
+    padding: 1.1em 1.5em;
+    background: rgba(11,18,28,0.88);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+  nav .brand { font-family: var(--mono); font-weight: 700; color: var(--ink); text-decoration: none; }
+  nav .links { display: flex; gap: 1.4em; flex-wrap: wrap; }
+  nav .links a { font-family: var(--mono); font-size: 0.9rem; color: var(--ink-soft); text-decoration: none; }
+  nav .links a:hover { color: var(--ink); }
+
+  /* ---------- hero ---------- */
+  .hero { max-width: 1000px; margin: 0 auto; padding: 4em 1.5em 2.5em; }
+  .kicker { font-family: var(--mono); color: var(--accent); font-size: 0.95rem; margin-bottom: 0.6em; }
+  .hero h1 { font-size: clamp(1.9rem, 5vw, 2.75rem); max-width: 16ch; color: var(--ink); letter-spacing: -0.01em; }
+  .hero .lede { max-width: 60ch; font-size: 1.08rem; margin-top: 0.6em; }
+
+  .stat-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin: 2em 0 1.5em; }
+  .stat { background: var(--surface); padding: 1.1em 1.2em; }
+  .stat .num { font-family: var(--mono); font-size: 1.5rem; color: var(--ink); font-weight: 700; }
+  .stat .label { font-size: 0.85rem; color: var(--ink-soft); }
+  @media (min-width: 560px) { .stat-row { grid-template-columns: repeat(4, 1fr); } }
+
+  .hero-actions { display: flex; gap: 1em; flex-wrap: wrap; }
+  .btn { font-family: var(--mono); font-size: 0.9rem; padding: 0.75em 1.3em; border-radius: 6px; text-decoration: none; display: inline-block; }
+  .btn-primary { background: var(--accent); color: #05201A; font-weight: 700; }
+  .btn-primary:hover { opacity: 0.9; }
+  .btn-ghost { color: var(--ink); border: 1px solid var(--border); }
+  .btn-ghost:hover { border-color: var(--ink-soft); }
+
+  /* ---------- sections ---------- */
+  section.block { max-width: var(--max); margin: 0 auto; padding: 3em 1.5em; }
+  section.block h2 { font-size: 1.35rem; color: var(--ink); border-bottom: 1px solid var(--border); padding-bottom: 0.6em; margin-bottom: 1.2em; }
+  .lede-sm { max-width: 62ch; color: var(--ink-soft); margin-bottom: 1.5em; }
+
+  /* ---------- timeline ---------- */
+  .timeline { list-style: none; padding: 0; margin: 0; border-left: 2px solid var(--border); }
+  .t-item { position: relative; padding: 0 0 2em 1.6em; }
+  .t-item:last-child { padding-bottom: 0; }
+  .t-item::before { content: ""; position: absolute; left: -6px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); }
+  .t-when { font-family: var(--mono); font-size: 0.82rem; color: var(--accent); margin-bottom: 0.3em; }
+  .t-role { font-size: 1.05rem; color: var(--ink); margin-bottom: 0.1em; }
+  .t-org { color: var(--ink-soft); font-weight: 600; margin-bottom: 0.5em; }
+  .chip-row { display: flex; gap: 0.5em; flex-wrap: wrap; margin-top: 0.6em; }
+  .chip { font-family: var(--mono); font-size: 0.78rem; padding: 0.3em 0.7em; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--border); color: var(--ink-soft); }
+
+  /* ---------- card grids ---------- */
+  .grid { display: grid; gap: 1.2em; margin-top: 1em; }
+  @media (min-width: 640px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } .grid-2 { grid-template-columns: repeat(2, 1fr); } }
+
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.4em; }
+  .card h3 { font-size: 1rem; color: var(--accent); margin-bottom: 0.6em; }
+  .card ul { padding-left: 1.1em; }
+
+  .tag-group h3 { font-size: 0.95rem; color: var(--ink); margin-bottom: 0.6em; font-family: var(--sans); font-weight: 600; }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 0.5em; }
+  .tag { font-family: var(--mono); font-size: 0.8rem; padding: 0.35em 0.8em; border-radius: 6px; background: var(--surface-2); border: 1px solid var(--border); color: var(--ink-soft); }
+
+  .learning { margin-top: 1.8em; padding-top: 1.2em; border-top: 1px solid var(--border); color: var(--ink-soft); font-size: 0.95rem; }
+
+  /* ---------- education plain list ---------- */
+  .plain { list-style: none; padding: 0; }
+  .plain li { border-bottom: 1px solid var(--border); padding-bottom: 0.7em; margin-bottom: 0.7em; color: var(--ink-soft); }
+  .plain li:last-child { border-bottom: none; }
+  .plain strong { color: var(--ink); }
+
+  /* ---------- contact ---------- */
+  .contact-links { display: flex; flex-direction: column; gap: 0.6em; margin-top: 1em; font-family: var(--mono); font-size: 1.05rem; }
+  .contact-links a { color: var(--ink); text-decoration: none; }
+  .contact-links a:hover { color: var(--accent); }
+
+  footer { text-align: center; padding: 2.5em 1.5em 3em; color: var(--ink-soft); font-size: 0.85rem; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="brand" href="#top">Siddhant Gurav</a>
+  <div class="links">
+    <a href="#experience">Experience</a>
+    <a href="#build">Expertise</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<main>
+  <section id="top" class="hero">
+    <p class="kicker">Senior MySQL Database Administrator</p>
+    <h1>Databases that stay up when the transactions don't stop.</h1>
+    <p class="lede">
+      9+ years administering MySQL, PostgreSQL, and MongoDB across banking, insurance, fintech,
+      and stock-market platforms — currently at <strong style="color:var(--ink)">Mosambee</strong>,
+      on database infrastructure behind live payment processing.
+    </p>
+
+    <div class="stat-row">
+      <div class="stat"><div class="num">9+</div><div class="label">Years in MySQL DBA</div></div>
+      <div class="stat"><div class="num">250+</div><div class="label">Databases administered</div></div>
+      <div class="stat"><div class="num">3TB</div><div class="label">Largest DB handled</div></div>
+      <div class="stat"><div class="num">5</div><div class="label">Industries served</div></div>
+    </div>
+
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="mailto:siddhantgurav10@gmail.com">Email Siddhant</a>
+      <a class="btn btn-ghost" href="#experience">See experience</a>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>About</h2>
+    <p class="lede-sm">
+      Database administrator with 9+ years keeping production systems available, secure, and fast —
+      from stock-market transaction platforms to bank payment gateways. Currently a Senior MySQL
+      Database Administrator at Synergistic Financial Networks Ltd (Mosambee), working on database
+      infrastructure for live transaction processing. B.Sc. in Information Technology, Nirmala College.
+    </p>
+  </section>
+
+  <section id="experience" class="block">
+    <h2>Experience</h2>
+    <p class="lede-sm">Across banking, insurance, entertainment, pharma, e-commerce, and stock-market brokerages — administering 250+ databases from 500GB to 3TB.</p>
+
+    <ol class="timeline">
+      <li class="t-item">
+        <div class="t-when">May 2025 — Present</div>
+        <div class="t-role">Senior MySQL Database Administrator</div>
+        <div class="t-org">Synergistic Financial Networks Ltd (Mosambee)</div>
+        <p>Database infrastructure for live payment transaction processing.</p>
+        <div class="chip-row"><span class="chip">Payments</span><span class="chip">Production</span></div>
+      </li>
+      <li class="t-item">
+        <div class="t-when">Jan 2024 — Apr 2025</div>
+        <div class="t-role">MySQL Database Administrator</div>
+        <div class="t-org">Hexaware Technologies</div>
+        <p>Production, UAT, and development database administration across client environments.</p>
+        <div class="chip-row"><span class="chip">Multi-client</span><span class="chip">Prod / UAT / Dev</span></div>
+      </li>
+      <li class="t-item">
+        <div class="t-when">Jan 2022 — Jan 2024</div>
+        <div class="t-role">MySQL Database Administrator</div>
+        <div class="t-org">Upstox</div>
+        <p>Stock-market transaction databases, secure transactional environments, and PII data handling.</p>
+        <div class="chip-row"><span class="chip">Stock market</span><span class="chip">PII data</span></div>
+      </li>
+      <li class="t-item">
+        <div class="t-when">Sep 2021 — Jan 2022</div>
+        <div class="t-role">MySQL Database Administrator</div>
+        <div class="t-org">Euronet Worldwide</div>
+        <p>Transactional and payment gateway databases for a major bank.</p>
+        <div class="chip-row"><span class="chip">Payment gateway</span><span class="chip">Banking</span></div>
+      </li>
+      <li class="t-item">
+        <div class="t-when">Nov 2017 — Sep 2021</div>
+        <div class="t-role">MySQL Database Administrator</div>
+        <div class="t-org">Netmagic Solutions (an NTT Data company)</div>
+        <p>Multi-domain client databases — banking, finance, insurance, entertainment, pharma, e-commerce.</p>
+        <div class="chip-row"><span class="chip">Data-centre scale</span><span class="chip">Multi-domain</span></div>
+      </li>
+    </ol>
+  </section>
+
+  <section id="build" class="block">
+    <h2>What I actually do</h2>
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>Reliability &amp; DR</h3>
+        <ul>
+          <li>24×7 support on AWS RDS, Aurora, MySQL 5.7/8.0</li>
+          <li>GTID replication setup</li>
+          <li>DR drills — switchover &amp; switchback</li>
+          <li>Incremental recovery via binlogs</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Performance &amp; automation</h3>
+        <ul>
+          <li>Table maintenance — defrag, index rebuilds</li>
+          <li>Tuning for faster dump restoration</li>
+          <li>Cron / shell / scheduler automation</li>
+          <li>Minor &amp; major version upgrades</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Security &amp; operations</h3>
+        <ul>
+          <li>User &amp; privilege provisioning</li>
+          <li>Server hardening per client policy</li>
+          <li>New environment setup, tight timelines</li>
+          <li>Jira / ServiceNow ticketing</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid grid-2" style="margin-top:1.2em;">
+      <div class="card">
+        <h3>PostgreSQL</h3>
+        <p style="margin:0;">HA topology — primary + hot standby, WAL streaming replication, PgBouncer transaction pooling for write/read-split workloads.</p>
+      </div>
+      <div class="card">
+        <h3>MongoDB</h3>
+        <p style="margin:0;">Replica-set administration, indexing strategy, and major-version rolling upgrades (7.0 → 8.0) with backup validation.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="block">
+    <h2>Toolbox</h2>
+    <div class="grid grid-2">
+      <div class="tag-group">
+        <h3>Databases</h3>
+        <div class="tag-row"><span class="tag">MySQL 5.7/8.0</span><span class="tag">Aurora MySQL</span><span class="tag">MariaDB</span><span class="tag">PostgreSQL</span><span class="tag">MongoDB</span></div>
+      </div>
+      <div class="tag-group">
+        <h3>Cloud &amp; infrastructure</h3>
+        <div class="tag-row"><span class="tag">AWS RDS</span><span class="tag">S3</span><span class="tag">Route 53</span><span class="tag">ClusterControl</span></div>
+      </div>
+      <div class="tag-group">
+        <h3>Automation &amp; monitoring</h3>
+        <div class="tag-row"><span class="tag">Jenkins</span><span class="tag">Liquibase</span><span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">Percona</span><span class="tag">MEB</span></div>
+      </div>
+      <div class="tag-group">
+        <h3>OS &amp; ticketing</h3>
+        <div class="tag-row"><span class="tag">Linux (RHEL)</span><span class="tag">AIX</span><span class="tag">HP-UX</span><span class="tag">Windows</span><span class="tag">Jira</span><span class="tag">ServiceNow</span></div>
+      </div>
+    </div>
+    <p class="learning">Currently expanding into AWS cloud certifications and PostgreSQL specialization.</p>
+  </section>
+
+  <section class="block">
+    <h2>Education &amp; certifications</h2>
+    <div class="grid grid-2">
+      <ul class="plain">
+        <li><strong>B.Sc. Information Technology</strong> — Nirmala College, 2016</li>
+        <li><strong>H.S.C.</strong> — Patkar College, 2013</li>
+        <li><strong>S.S.C.</strong> — St. Francis High School, 2011</li>
+      </ul>
+      <ul class="plain">
+        <li>Oracle Database 12c: Administration Workshop — 2019</li>
+        <li>ITIL Foundation Certificate in IT Service Management — 2017</li>
+        <li>Advanced Excel Workshop — 2018</li>
+        <li>Employee of the Quarter, Jan–Mar 2019</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact" class="block">
+    <h2>Get in touch</h2>
+    <p class="lede-sm">Open to conversations about database reliability, migrations, or your team's data infrastructure.</p>
+    <div class="contact-links">
+      <a href="mailto:siddhantgurav10@gmail.com">siddhantgurav10@gmail.com</a>
+      <a href="tel:+917700091233">+91 77000 91233</a>
+    </div>
+  </section>
+</main>
+
+<footer>© <span id="year"></span> Siddhant Gurav</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
