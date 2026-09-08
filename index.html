@@ -12,14 +12,14 @@
 
 <style>
   :root {
-    --bg:        #0B121C;
-    --surface:   #121B29;
-    --surface-2: #17263A;
-    --border:    #24344A;
-    --ink:       #E7ECF2;
-    --ink-soft:  #93A3B8;
-    --accent:    #35C4A1;
-    --accent-2:  #E8B15C;
+    --bg:        #E7F1DE;
+    --surface:   #F6FBF1;
+    --surface-2: #DCEACC;
+    --border:    #C2D6AE;
+    --ink:       #1E3A17;
+    --ink-soft:  #4B6B41;
+    --accent:    #2F7A46;
+    --accent-2:  #6B8F3E;
 
     --mono: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
     --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -53,7 +53,7 @@
     display: flex; justify-content: space-between; align-items: center;
     flex-wrap: wrap; gap: 0.6em 1.4em;
     padding: 1.1em 1.5em;
-    background: rgba(11,18,28,0.88);
+    background: rgba(231, 241, 222, 0.88);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--border);
   }
@@ -91,7 +91,7 @@
 
   .hero-actions { display: flex; gap: 1em; flex-wrap: wrap; }
   .btn { font-family: var(--mono); font-size: 0.9rem; padding: 0.75em 1.3em; border-radius: 6px; text-decoration: none; display: inline-block; }
-  .btn-primary { background: var(--accent); color: #05201A; font-weight: 700; }
+  .btn-primary { background: var(--accent); color: var(--surface); font-weight: 700; }
   .btn-primary:hover { opacity: 0.9; }
   .btn-ghost { color: var(--ink); border: 1px solid var(--border); }
   .btn-ghost:hover { border-color: var(--ink-soft); }
@@ -183,7 +183,7 @@
       2. Replace the whole <div class="photo-box">...</div> below with:
          <div class="photo-box"><img src="profile.jpg" alt="Siddhant Gurav"></div>
     -->
-    <div class="photo-box"><img src="myphoto.jpeg" alt="Siddhant Gurav"></div>
+    <div class="photo-box"><span class="initials">SG</span></div>
   </section>
 
   <section class="block">
@@ -329,7 +329,7 @@
     <div class="contact-links">
       <a href="mailto:siddhantgurav10@gmail.com">siddhantgurav10@gmail.com</a>
       <a href="tel:+917700091233">+91 77000 91233</a>
-      <a href="https://www.linkedin.com/in/siddhant-gurav-b71035181/" target="_blank" rel="noopener">linkedin-siddhant-gurav</a>
+      <a href="https://www.linkedin.com/in/siddhant-gurav-b71035181/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </section>
 </main>
