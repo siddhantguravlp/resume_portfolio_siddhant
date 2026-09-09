@@ -57,28 +57,23 @@
     backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--border);
   }
-  nav .brand { font-family: var(--mono); font-weight: 700; color: var(--ink); text-decoration: none; }
+  nav .brand { font-family: var(--mono); font-weight: 700; color: var(--ink); text-decoration: none; display: flex; align-items: center; gap: 0.6em; }
+  .nav-photo {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .nav-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
   nav .links { display: flex; gap: 1.4em; flex-wrap: wrap; }
   nav .links a { font-family: var(--mono); font-size: 0.9rem; color: var(--ink-soft); text-decoration: none; }
   nav .links a:hover { color: var(--ink); }
 
   /* ---------- hero ---------- */
-  .hero { max-width: 1000px; margin: 0 auto; padding: 4em 1.5em 2.5em; display: grid; gap: 2.2em; }
-  @media (min-width: 760px) {
-    .hero { grid-template-columns: 1.15fr 0.85fr; align-items: center; }
-    .hero .photo-box { justify-self: end; }
-  }
-
-  .photo-box {
-    width: 200px; height: 200px;
-    border-radius: 16px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: center;
-    overflow: hidden;
-  }
-  .photo-box .initials { font-family: var(--mono); font-size: 3rem; font-weight: 700; color: var(--ink-soft); letter-spacing: 0.04em; }
-  .photo-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hero { max-width: 1000px; margin: 0 auto; padding: 4em 1.5em 2.5em; }
   .kicker { font-family: var(--mono); color: var(--accent); font-size: 0.95rem; margin-bottom: 0.6em; }
   .hero h1 { font-size: clamp(1.9rem, 5vw, 2.75rem); max-width: 16ch; color: var(--ink); letter-spacing: -0.01em; }
   .hero .lede { max-width: 60ch; font-size: 1.08rem; margin-top: 0.6em; }
@@ -143,7 +138,10 @@
 <body>
 
 <nav>
-  <a class="brand" href="#top">Siddhant Gurav</a>
+  <a class="brand" href="#top">
+    <span class="nav-photo"><img src="profile.jpg" alt="Siddhant Gurav"></span>
+    Siddhant Gurav
+  </a>
   <div class="links">
     <a href="#experience">Experience</a>
     <a href="#build">Expertise</a>
@@ -176,14 +174,6 @@
         <a class="btn btn-ghost" href="#experience">See experience</a>
       </div>
     </div>
-
-    <!--
-      PHOTO: to use your own photo instead of the initials box —
-      1. Add your image file to this same repo, next to index.html (e.g. profile.jpg)
-      2. Replace the whole <div class="photo-box">...</div> below with:
-         <div class="photo-box"><img src="profile.jpg" alt="Siddhant Gurav"></div>
-    -->
-    <div class="photo-box"><img src="myphoto.jpeg" alt="Siddhant Gurav"></div>
   </section>
 
   <section class="block">
@@ -334,7 +324,13 @@
   </section>
 </main>
 
-<footer>© <span id="year"></span> Siddhant Gurav</footer>
+<footer>
+  <p style="margin:0 0 0.6em;">© <span id="year"></span> Siddhant Gurav</p>
+  <!-- Free visitor-count badge via visitorbadge.io — swap the two "siddverse.in" bits below if your domain ever changes -->
+  <a href="https://visitorbadge.io/status?path=https%3A%2F%2Fsiddverse.in%2F" target="_blank" rel="noopener">
+    <img src="https://api.visitorbadge.io/api/combined?path=https%3A%2F%2Fsiddverse.in%2F&countColor=%232F7A46&style=flat" alt="Visitor count" style="vertical-align:middle;">
+  </a>
+</footer>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
