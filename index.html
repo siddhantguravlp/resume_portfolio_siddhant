@@ -19,6 +19,28 @@
 <meta name="twitter:description" content="9+ years administering MySQL, PostgreSQL, and MongoDB for banking, fintech, and payments platforms.">
 <meta name="twitter:image" content="https://siddverse.in/og-image.png">
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Siddhant Gurav",
+  "jobTitle": "Senior MySQL Database Administrator",
+  "url": "https://siddverse.in/",
+  "email": "mailto:siddhantgurav10@gmail.com",
+  "telephone": "+91-77000-91233",
+  "sameAs": ["https://www.linkedin.com/in/siddhant-gurav-b71035181/"],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Synergistic Financial Networks Ltd (Mosambee)"
+  },
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Nirmala College"
+  },
+  "knowsAbout": ["MySQL", "PostgreSQL", "MongoDB", "Database Administration", "AWS RDS", "Disaster Recovery", "Database Replication"]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Literata:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
@@ -80,7 +102,7 @@
     background: var(--bg);
     border-bottom: 1px solid var(--border);
   }
-  nav .brand { font-family: var(--serif); font-weight: 700; font-style: italic; color: var(--ink); text-decoration: none; display: flex; align-items: center; gap: 0.6em; }
+  nav .brand { font-family: var(--serif); font-weight: 700; color: var(--ink); text-decoration: none; display: flex; align-items: center; gap: 0.6em; }
   .nav-photo {
     width: 34px; height: 34px;
     border-radius: 50%;
@@ -91,7 +113,7 @@
   }
   .nav-photo img { width: 100%; height: 100%; object-fit: cover; display: block; filter: sepia(0.15); }
   nav .links { display: flex; gap: 1.4em; flex-wrap: wrap; }
-  nav .links a { font-family: var(--serif); font-size: 0.92rem; font-style: italic; color: var(--ink-soft); text-decoration: none; padding-bottom: 2px; border-bottom: 1px solid transparent; transition: border-color 0.2s ease, color 0.2s ease; }
+  nav .links a { font-family: var(--serif); font-size: 0.92rem; color: var(--ink-soft); text-decoration: none; padding-bottom: 2px; border-bottom: 1px solid transparent; transition: border-color 0.2s ease, color 0.2s ease; }
   nav .links a:hover { color: var(--ink); border-color: var(--accent); }
 
   /* ---------- hero ---------- */
@@ -104,15 +126,15 @@
   .stat-row { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--border); border-left: 1px solid var(--border); margin: 2.2em 0 1.8em; }
   .stat { border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 1.1em 1.2em; }
   .stat .num { font-family: var(--serif); font-size: 1.5rem; color: var(--ink); font-weight: 700; }
-  .stat .label { font-size: 0.85rem; font-style: italic; color: var(--ink-soft); }
+  .stat .label { font-size: 0.85rem; color: var(--ink-soft); }
   @media (min-width: 560px) { .stat-row { grid-template-columns: repeat(4, 1fr); } }
 
   /* ---------- actions: text links, not filled buttons ---------- */
-  .hero-actions { display: flex; gap: 1.6em; flex-wrap: wrap; align-items: baseline; }
-  .btn { font-family: var(--serif); font-size: 1rem; font-style: italic; text-decoration: none; display: inline-block; padding-bottom: 2px; border-bottom: 1px solid currentColor; transition: color 0.2s ease, opacity 0.2s ease; }
-  .btn-primary { color: var(--accent); font-weight: 700; }
-  .btn-primary:hover { opacity: 0.7; }
-  .btn-ghost { color: var(--ink-soft); }
+  .hero-actions { display: flex; gap: 1.1em; flex-wrap: wrap; align-items: center; }
+  .btn { font-family: var(--serif); font-size: 1rem; text-decoration: none; display: inline-block; transition: color 0.2s ease, opacity 0.2s ease, background-color 0.2s ease; }
+  .btn-primary { color: var(--bg); background: var(--accent); font-weight: 700; padding: 0.65em 1.3em; border: 1px solid var(--accent); }
+  .btn-primary:hover { opacity: 0.85; }
+  .btn-ghost { color: var(--ink-soft); padding-bottom: 2px; border-bottom: 1px solid currentColor; }
   .btn-ghost:hover { color: var(--ink); }
 
   /* ---------- hover cue on panels (replaces 3D tilt) ---------- */
@@ -136,10 +158,10 @@
   .t-item { position: relative; padding: 0 0 2em 1.6em; }
   .t-item:last-child { padding-bottom: 0; }
   .t-item::before { content: ""; position: absolute; left: -6px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); }
-  .t-when { font-family: var(--serif); font-style: italic; font-size: 0.88rem; color: var(--accent); margin-bottom: 0.3em; }
+  .t-when { font-family: var(--serif); font-size: 0.88rem; color: var(--accent); margin-bottom: 0.3em; }
   .t-role { font-size: 1.05rem; color: var(--ink); margin-bottom: 0.1em; font-weight: 700; }
   .t-org { color: var(--ink-soft); font-weight: 600; font-style: italic; margin-bottom: 0.5em; }
-  .chip-row { margin-top: 0.6em; font-style: italic; font-size: 0.9rem; color: var(--ink-soft); }
+  .chip-row { margin-top: 0.6em; font-size: 0.9rem; color: var(--ink-soft); }
   .chip:not(:last-child)::after { content: " \00b7 "; }
 
   /* ---------- card grids: flat, rule-divided, no boxes ---------- */
@@ -147,14 +169,14 @@
   @media (min-width: 640px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } .grid-2 { grid-template-columns: repeat(2, 1fr); } }
 
   .card { border-top: 1px solid var(--border); padding: 1.2em 0 0; }
-  .card h3 { font-size: 1.05rem; font-style: italic; color: var(--accent); margin-bottom: 0.6em; }
+  .card h3 { font-size: 1.05rem; color: var(--accent); margin-bottom: 0.6em; }
   .card ul { padding-left: 1.1em; }
 
-  .tag-group h3 { font-size: 1rem; font-style: italic; color: var(--ink); margin-bottom: 0.5em; font-weight: 700; }
+  .tag-group h3 { font-size: 1rem; color: var(--ink); margin-bottom: 0.5em; font-weight: 700; }
   .tag-row { color: var(--ink-soft); font-size: 0.98rem; }
   .tag:not(:last-child)::after { content: ", "; }
 
-  .learning { margin-top: 1.8em; padding-top: 1.2em; border-top: 1px solid var(--border); color: var(--ink-soft); font-size: 0.98rem; font-style: italic; }
+  .learning { margin-top: 1.8em; padding-top: 1.2em; border-top: 1px solid var(--border); color: var(--ink-soft); font-size: 0.98rem; }
 
   /* ---------- education plain list ---------- */
   .plain { list-style: none; padding: 0; }
@@ -163,11 +185,11 @@
   .plain strong { color: var(--ink); }
 
   /* ---------- contact ---------- */
-  .contact-links { display: flex; flex-direction: column; gap: 0.7em; margin-top: 1em; font-family: var(--serif); font-style: italic; font-size: 1.1rem; }
+  .contact-links { display: flex; flex-direction: column; gap: 0.7em; margin-top: 1em; font-family: var(--serif); font-size: 1.1rem; }
   .contact-links a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 2px; width: fit-content; }
   .contact-links a:hover { color: var(--accent); border-color: var(--accent); }
 
-  footer { text-align: center; padding: 2.5em 1.5em 3em; color: var(--ink-soft); font-size: 0.85rem; font-style: italic; }
+  footer { text-align: center; padding: 2.5em 1.5em 3em; color: var(--ink-soft); font-size: 0.85rem; }
 </style>
 <noscript><style>.reveal{opacity:1 !important; transform:none !important;}</style></noscript>
 </head>
@@ -275,27 +297,27 @@
         <h3>Reliability &amp; DR</h3>
         <ul>
           <li>24×7 support on AWS RDS, Aurora, MySQL 5.7/8.0</li>
-          <li>GTID replication setup</li>
-          <li>DR drills — switchover &amp; switchback</li>
-          <li>Incremental recovery via binlogs</li>
+          <li>Resolved GTID_PURGED and primary-key enforcement errors during a full environment restore</li>
+          <li>Planned and ran DR drills — switchover &amp; switchback</li>
+          <li>Pruned binlog backups across 450+ GB and 50,000+ files without breaking point-in-time recovery</li>
         </ul>
       </div>
       <div class="card tilt-card">
         <h3>Performance &amp; automation</h3>
         <ul>
-          <li>Table maintenance — defrag, index rebuilds</li>
-          <li>Tuning for faster dump restoration</li>
-          <li>Cron / shell / scheduler automation</li>
-          <li>Minor &amp; major version upgrades</li>
+          <li>Diagnosed a replica load spike traced to a self-join query missing an index hint</li>
+          <li>Batched a 270K-row production update with replica-lag-aware throttling</li>
+          <li>Tuned parameters for faster dump restoration</li>
+          <li>Automated routine operations via cron, shell, and schedulers</li>
         </ul>
       </div>
       <div class="card tilt-card">
         <h3>Security &amp; operations</h3>
         <ul>
-          <li>User &amp; privilege provisioning</li>
-          <li>Server hardening per client policy</li>
-          <li>New environment setup, tight timelines</li>
-          <li>Jira / ServiceNow ticketing</li>
+          <li>Built a PII-masking script covering 400+ tables, isolating 180+ sensitive columns</li>
+          <li>Generated migration SQL from environment schema diffs, catching drift before release</li>
+          <li>Server hardening and privilege provisioning per client policy</li>
+          <li>New environment setup under tight timelines; Jira / ServiceNow ticketing</li>
         </ul>
       </div>
     </div>
@@ -303,11 +325,11 @@
     <div class="grid grid-2" style="margin-top:1.2em;">
       <div class="card tilt-card">
         <h3>PostgreSQL</h3>
-        <p style="margin:0;">HA topology — primary + hot standby, WAL streaming replication, PgBouncer transaction pooling for write/read-split workloads.</p>
+        <p style="margin:0;">Authored an HA topology implementation guide — primary + hot standby, WAL streaming replication, and PgBouncer transaction pooling behind a FastAPI read/write split.</p>
       </div>
       <div class="card tilt-card">
         <h3>MongoDB</h3>
-        <p style="margin:0;">Replica-set administration, indexing strategy, and major-version rolling upgrades (7.0 → 8.0) with backup validation.</p>
+        <p style="margin:0;">Rewrote the upgrade runbook for a 5-node replica set through a mixed-version 7.0 → 8.0 rolling upgrade, plus indexing strategy and backup validation.</p>
       </div>
     </div>
   </section>
