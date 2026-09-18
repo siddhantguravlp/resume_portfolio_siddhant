@@ -44,13 +44,31 @@
 
   body {
     margin: 0;
-    background: var(--bg);
     color: var(--ink);
     font-family: var(--sans);
     line-height: 1.65;
     font-size: 17px;
     -webkit-font-smoothing: antialiased;
+    position: relative;
   }
+
+  /* ---------- atmospheric background: fixed, sits behind everything ---------- */
+  .bg-layer {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: var(--bg);
+    overflow: hidden;
+  }
+  .bg-layer .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    opacity: 0.55;
+  }
+  .bg-layer .blob-1 { width: 46vw; height: 46vw; top: -14vw; left: -10vw; background: var(--accent-2); opacity: 0.28; }
+  .bg-layer .blob-2 { width: 38vw; height: 38vw; top: 18vw; right: -12vw; background: var(--accent); opacity: 0.22; }
+  .bg-layer .blob-3 { width: 34vw; height: 34vw; bottom: -14vw; left: 18vw; background: var(--surface-2); opacity: 0.55; }
 
   h1, h2, h3 { font-family: var(--mono); line-height: 1.2; margin: 0 0 0.5em; font-weight: 700; }
   p { margin: 0 0 1em; color: var(--ink-soft); }
@@ -82,35 +100,17 @@
   }
   .nav-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
   nav .links { display: flex; gap: 1.4em; flex-wrap: wrap; }
-  nav .links a { font-family: var(--mono); font-size: 0.9rem; color: var(--ink-soft); text-decoration: none; }
-  nav .links a:hover { color: var(--ink); }
+  nav .links a { font-family: var(--mono); font-size: 0.9rem; color: var(--ink-soft); text-decoration: none; display: inline-block; transition: transform 0.18s ease, color 0.18s ease; }
+  nav .links a:hover { color: var(--ink); transform: scale(1.15); }
 
   /* ---------- hero ---------- */
-  .hero { max-width: 1080px; margin: 0 auto; padding: 4em 1.5em 2.5em; display: grid; gap: 2em; }
-  @media (min-width: 760px) {
-    .hero { grid-template-columns: 1.1fr 0.9fr; align-items: center; }
-  }
-  .hero-3d {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    max-width: 420px;
-    justify-self: center;
-  }
-  @media (min-width: 760px) { .hero-3d { justify-self: end; } }
-  .hero-3d canvas { display: block; width: 100% !important; height: 100% !important; }
-  .hero-3d .fallback-ring {
-    position: absolute; inset: 12%;
-    border: 2px dashed var(--border);
-    border-radius: 50%;
-    display: none;
-  }
+  .hero { max-width: 800px; margin: 0 auto; padding: 4.5em 1.5em 2.5em; position: relative; }
   .kicker { font-family: var(--mono); color: var(--accent); font-size: 0.95rem; margin-bottom: 0.6em; }
   .hero h1 { font-size: clamp(1.9rem, 5vw, 2.75rem); max-width: 16ch; color: var(--ink); letter-spacing: -0.01em; }
   .hero .lede { max-width: 60ch; font-size: 1.08rem; margin-top: 0.6em; }
 
   .stat-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin: 2em 0 1.5em; }
-  .stat { background: var(--surface); padding: 1.1em 1.2em; }
+  .stat { background: rgba(246, 251, 241, 0.72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); padding: 1.1em 1.2em; box-shadow: 0 1px 2px rgba(30,58,23,0.05), 0 12px 28px -18px rgba(30,58,23,0.35); }
   .stat .num { font-family: var(--mono); font-size: 1.5rem; color: var(--ink); font-weight: 700; }
   .stat .label { font-size: 0.85rem; color: var(--ink-soft); }
   @media (min-width: 560px) { .stat-row { grid-template-columns: repeat(4, 1fr); } }
@@ -136,8 +136,8 @@
   }
 
   /* ---------- sections ---------- */
-  section.block { max-width: var(--max); margin: 0 auto; padding: 3em 1.5em; }
-  section.block h2 { font-size: 1.35rem; color: var(--ink); border-bottom: 1px solid var(--border); padding-bottom: 0.6em; margin-bottom: 1.2em; }
+  section.block { max-width: var(--max); margin: 0 auto; padding: 3em 1.5em; position: relative; }
+  section.block h2 { position: relative; font-size: 1.35rem; color: var(--ink); border-bottom: 1px solid var(--border); padding-bottom: 0.6em; margin-bottom: 1.2em; }
   .lede-sm { max-width: 62ch; color: var(--ink-soft); margin-bottom: 1.5em; }
 
   /* ---------- timeline ---------- */
@@ -155,7 +155,7 @@
   .grid { display: grid; gap: 1.2em; margin-top: 1em; }
   @media (min-width: 640px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } .grid-2 { grid-template-columns: repeat(2, 1fr); } }
 
-  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.4em; }
+  .card { background: rgba(246, 251, 241, 0.72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid var(--border); border-radius: 10px; padding: 1.4em; box-shadow: 0 1px 2px rgba(30,58,23,0.05), 0 14px 30px -18px rgba(30,58,23,0.3); }
   .card h3 { font-size: 1rem; color: var(--accent); margin-bottom: 0.6em; }
   .card ul { padding-left: 1.1em; }
 
@@ -181,6 +181,12 @@
 <noscript><style>.reveal{opacity:1 !important; transform:none !important;}</style></noscript>
 </head>
 <body>
+
+<div class="bg-layer" aria-hidden="true">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+</div>
 
 <nav>
   <a class="brand" href="#top">
@@ -219,10 +225,6 @@
         <a class="btn btn-ghost" href="resume.pdf" target="_blank" rel="noopener">Download Resume (PDF)</a>
         <a class="btn btn-ghost" href="#experience">See experience</a>
       </div>
-    </div>
-
-    <div class="hero-3d" aria-hidden="true">
-      <div class="fallback-ring"></div>
     </div>
   </section>
 
@@ -378,7 +380,6 @@
   <p style="margin:0 0 0.6em;">© <span id="year"></span> Siddhant Gurav</p>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -413,118 +414,6 @@
     });
   }
 
-  /* ---------- 3D hero: rotating replication topology ---------- */
-  (function () {
-    var mount = document.querySelector('.hero-3d');
-    if (!mount || typeof THREE === 'undefined') { if (mount) mount.querySelector('.fallback-ring').style.display = 'block'; return; }
-
-    var renderer;
-    try {
-      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    } catch (e) {
-      mount.querySelector('.fallback-ring').style.display = 'block';
-      return;
-    }
-
-    var ACCENT = 0x2f7a46, EDGE = 0x9db98c, INK = 0x1e3a17;
-
-    var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
-    camera.position.set(0, 0.3, 6.2);
-
-    function size() {
-      var w = mount.clientWidth, h = mount.clientHeight;
-      renderer.setSize(w, h);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-      camera.aspect = w / h;
-      camera.updateProjectionMatrix();
-    }
-    mount.appendChild(renderer.domElement);
-    size();
-    window.addEventListener('resize', size);
-
-    scene.add(new THREE.AmbientLight(0xffffff, 0.65));
-    var key = new THREE.DirectionalLight(0xffffff, 0.9);
-    key.position.set(3, 4, 5);
-    scene.add(key);
-    var rim = new THREE.DirectionalLight(ACCENT, 0.4);
-    rim.position.set(-3, -2, -4);
-    scene.add(rim);
-
-    var group = new THREE.Group();
-    scene.add(group);
-
-    var nodeGeo = new THREE.IcosahedronGeometry(0.62, 1);
-    var nodeMat = new THREE.MeshStandardMaterial({ color: ACCENT, flatShading: true, roughness: 0.45, metalness: 0.08 });
-    var drMat = new THREE.MeshStandardMaterial({ color: ACCENT, flatShading: true, roughness: 0.45, metalness: 0.08, wireframe: false, transparent: true, opacity: 0.85 });
-
-    var positions = {
-      primary: new THREE.Vector3(0, 1.05, 0),
-      replica: new THREE.Vector3(-1.55, -0.75, 0.4),
-      dr: new THREE.Vector3(1.55, -0.75, -0.4)
-    };
-
-    var primary = new THREE.Mesh(nodeGeo, nodeMat);
-    primary.scale.setScalar(1.15);
-    primary.position.copy(positions.primary);
-    group.add(primary);
-
-    var replica = new THREE.Mesh(nodeGeo, nodeMat.clone());
-    replica.scale.setScalar(0.85);
-    replica.position.copy(positions.replica);
-    group.add(replica);
-
-    var dr = new THREE.Mesh(nodeGeo, drMat);
-    dr.scale.setScalar(0.78);
-    dr.position.copy(positions.dr);
-    group.add(dr);
-
-    function edge(a, b) {
-      var g = new THREE.BufferGeometry().setFromPoints([a, b]);
-      var m = new THREE.LineBasicMaterial({ color: EDGE, transparent: true, opacity: 0.7 });
-      return new THREE.Line(g, m);
-    }
-    group.add(edge(positions.primary, positions.replica));
-    group.add(edge(positions.primary, positions.dr));
-
-    /* small pulses traveling along each edge */
-    var pulseGeo = new THREE.SphereGeometry(0.055, 12, 12);
-    var pulseMat = new THREE.MeshBasicMaterial({ color: ACCENT });
-    var pulses = [
-      { mesh: new THREE.Mesh(pulseGeo, pulseMat.clone()), from: positions.primary, to: positions.replica, t: 0, speed: 0.006 },
-      { mesh: new THREE.Mesh(pulseGeo, pulseMat.clone()), from: positions.primary, to: positions.dr, t: 0.5, speed: 0.0045 }
-    ];
-    pulses.forEach(function (p) { group.add(p.mesh); });
-
-    group.rotation.x = 0.15;
-
-    var targetRotY = 0, currentRotY = 0, spinAngle = 0;
-    var baseSpin = prefersReducedMotion ? 0 : 0.0022;
-
-    mount.addEventListener('mousemove', function (e) {
-      var r = mount.getBoundingClientRect();
-      targetRotY = ((e.clientX - r.left) / r.width - 0.5) * 0.6;
-    });
-    mount.addEventListener('mouseleave', function () { targetRotY = 0; });
-
-    function animate() {
-      requestAnimationFrame(animate);
-      spinAngle += baseSpin;
-      currentRotY += (targetRotY - currentRotY) * 0.04;
-      group.rotation.y = spinAngle + currentRotY;
-      pulses.forEach(function (p) {
-        p.t += p.speed;
-        if (p.t > 1) p.t = 0;
-        p.mesh.position.lerpVectors(p.from, p.to, p.t);
-      });
-      renderer.render(scene, camera);
-    }
-    if (prefersReducedMotion) {
-      renderer.render(scene, camera);
-    } else {
-      animate();
-    }
-  })();
 </script>
 </body>
 </html>
