@@ -243,35 +243,35 @@
     <p class="lede-sm">Across banking, insurance, entertainment, pharma, e-commerce, and stock-market brokerages — administering 250+ databases from 500GB to 3TB.</p>
 
     <ol class="timeline">
-      <li class="t-item">
+      <li class="t-item reveal">
         <div class="t-when">May 2025 — Present</div>
         <div class="t-role">Senior MySQL Database Administrator</div>
         <div class="t-org">Synergistic Financial Networks Ltd (Mosambee)</div>
         <p>Database infrastructure for live payment transaction processing.</p>
         <div class="chip-row"><span class="chip">Payments</span><span class="chip">Production</span></div>
       </li>
-      <li class="t-item">
+      <li class="t-item reveal">
         <div class="t-when">Jan 2024 — Apr 2025</div>
         <div class="t-role">MySQL Database Administrator</div>
         <div class="t-org">Hexaware Technologies</div>
         <p>Production, UAT, and development database administration across client environments.</p>
         <div class="chip-row"><span class="chip">Multi-client</span><span class="chip">Prod / UAT / Dev</span></div>
       </li>
-      <li class="t-item">
+      <li class="t-item reveal">
         <div class="t-when">Jan 2022 — Jan 2024</div>
         <div class="t-role">MySQL Database Administrator</div>
         <div class="t-org">Upstox</div>
         <p>Stock-market transaction databases, secure transactional environments, and PII data handling.</p>
         <div class="chip-row"><span class="chip">Stock market</span><span class="chip">PII data</span></div>
       </li>
-      <li class="t-item">
+      <li class="t-item reveal">
         <div class="t-when">Sep 2021 — Jan 2022</div>
         <div class="t-role">MySQL Database Administrator</div>
         <div class="t-org">Euronet Worldwide</div>
         <p>Transactional and payment gateway databases for a major bank.</p>
         <div class="chip-row"><span class="chip">Payment gateway</span><span class="chip">Banking</span></div>
       </li>
-      <li class="t-item">
+      <li class="t-item reveal">
         <div class="t-when">Nov 2017 — Sep 2021</div>
         <div class="t-role">MySQL Database Administrator</div>
         <div class="t-org">Netmagic Solutions (an NTT Data company)</div>
@@ -385,14 +385,11 @@
 
   var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- scroll reveal ---------- */
+  /* ---------- scroll reveal (fades in AND back out) ---------- */
   if ('IntersectionObserver' in window) {
     var revealObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          revealObserver.unobserve(entry.target);
-        }
+        entry.target.classList.toggle('is-visible', entry.isIntersecting);
       });
     }, { threshold: 0.15 });
     document.querySelectorAll('.reveal').forEach(function (el) { revealObserver.observe(el); });
